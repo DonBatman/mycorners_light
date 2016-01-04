@@ -42,6 +42,9 @@ minetest.register_tool( "mycorners_light:corner_tool",{
 	if pointed_thing.type ~= "node" then
 		return
 	end
+	if minetest.is_protected(pos, user:get_player_name()) then
+		return
+	end
 for i in ipairs(cornerblock) do
 	local mat = cornerblock[i][1]
 	local img = cornerblock[i][2]
